@@ -1,0 +1,7 @@
+// ────────────── Startup Applications ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
+//
+// Quake style terminal start up (needs a hidden workspace in the background to hide the terminal)
+// (disabling because it's a weird workaround to it, it hides it in some other tab)
+// spawn-at-startup "niri" "msg" "action" "focus-workspace-down"
+    spawn-sh-at-startup "qs -c noctalia-shell"
