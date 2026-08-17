@@ -1,0 +1,8 @@
+[Nemo Action]
+Active=true
+Name=h4x here !!
+Comment=we spwns the h4x here !! (open a term in this directory)
+Exec=alacritty --working-directory %F
+Selection=any
+Extensions=dir;
+Icon-Name=/home/rat/.local/share/icons/hicolor/scalable/apps/skull.svg

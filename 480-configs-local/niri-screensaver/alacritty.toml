@@ -1,0 +1,7 @@
+[font]
+size = 24.0 # Make this higher to "zoom in" or lower to "zoom out"
+
+[window]
+padding = { x = 0, y = 0 }
+dynamic_padding = true
+

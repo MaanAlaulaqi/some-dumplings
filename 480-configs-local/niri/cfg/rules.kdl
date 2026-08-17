@@ -1,0 +1,54 @@
+    window-rule {
+        geometry-corner-radius 10 // Set every window radius to 20
+        clip-to-geometry true
+	background-effect {
+		blur true
+	}
+    }
+
+     // if you use steam you will probably like these
+    window-rule {
+        match app-id="steam"
+        exclude title=r#"^[Ss]team$"#
+        open-floating true
+    }
+
+    window-rule {
+       match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+       default-floating-position x=10 y=10 relative-to="bottom-right"
+       open-focused false
+    }
+
+    layer-rule {
+        match namespace="^noctalia-wallpaper*"
+        place-within-backdrop true
+    }
+
+    // Default values commented out are the defaults if they are not set
+    blur {
+	    passes 2 // 3
+	    offset 2 // 3
+	    saturation 1 // 1.5
+	    noise 0.0 // 0.02
+    }
+    
+  // having the screensaver show up in the lock screen
+  window-rule {
+    match app-id="^niri-screensaver$"
+    
+    open-fullscreen true
+    
+    geometry-corner-radius 0.0
+    clip-to-geometry true
+}
+
+// Quake style terminal (check the keybinds)
+//window-rule {
+//  match app-id="alacritty-drop"
+//
+//  open-floating true
+//  default-floating-position x=0 y=0 relative-to="top-left"
+//
+//  default-column-width { proportion 1.0; }
+//  default-window-height { proportion 0.3; }
+//}

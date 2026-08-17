@@ -1,0 +1,67 @@
+// ────────────── Input Configuration ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+
+// ------ My own addition
+
+//switch-events {
+//    lid-close { 
+//        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock" 
+//    }
+//}
+
+switch-events {
+    // Triggers when the laptop lid closes
+    lid-close { 
+//        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"
+        spawn "sh" "-c" "qs -c noctalia-shell ipc call lockScreen lock && niri msg action power-off-monitors"
+    }
+
+    // Triggers when the laptop lid opens
+    lid-open {
+        // Runs a shell interpreter to execute the off/on toggle sequence sequentially
+	spawn "sh" "-c" "niri output eDP-1 off && niri output eDP-1 on"
+    }
+}
+
+
+// ----- End of my own addition
+input {
+    keyboard {
+        xkb {
+            //If you want to overwrite your keyboard layout,
+            // uncomment the line below and change the layout accordingly.
+            //layout "us" // Use the American keyboard layout
+        }
+        numlock // Enable numlock on startup
+    }
+
+    touchpad {
+        tap // Enable tap-to-click
+        natural-scroll // Enable natural (macOS-style) scrolling
+	accel-profile "adaptive"
+	accel-speed 0.8
+    }
+
+    mouse {
+        // If you want to disable Mouse Acceleration,
+        // uncomment the lines below.
+        // accel-profile "flat"
+        // accel-speed 0.0
+    }
+
+    
+    focus-follows-mouse // Automatically focus windows under the mouse pointer
+   // workspace-auto-back-and-forth // Enable workspace back & forth switching
+  }
+
+  // dnd-edge-view-scroll {
+  //     trigger-width 20    // distance from edge in pixels
+  //     delay-ms 200        // delay before scrolling starts
+  //     max-speed 1000      // maximum scrolling speed
+  // }
+  // dnd-edge-workspace-switch {
+  //     trigger-height 20
+  //     delay-ms 200
+  //     max-speed 1500
+  // }
+
